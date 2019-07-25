@@ -1,3 +1,6 @@
-import React from "react"
+import React from 'react'
+import Home from './components/Home'
 
-export default () => <div>Hello world!</div>
+export default () => (
+  <Home />
+)
