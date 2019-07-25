@@ -15,6 +15,10 @@ module.exports = {
         id: "profile",
       },
       {
+        title: "Who am I",
+        id: "who-am-i",
+      },
+      {
         title: "Who I've Worked For",
         id: "sponsors",
       },
@@ -30,11 +34,11 @@ module.exports = {
           "/static/Patrick Beecher comm demo 2019-e31e8ae9b36785bf4655a0a39019ed42.mp3",
       },
       {
-        title: "Explainer Text",
+        title: "Explainer",
         url: "/static/marathonpetroleum-215495205782348fb3f841cbb5a41c0f.mp3",
       },
       {
-        title: "IVR Text",
+        title: "IVR",
         url: "/static/IVR-b15f7eb1b8b2b990a4d00155491e7587.mp3",
       },
     ],

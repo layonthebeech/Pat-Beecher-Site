@@ -6,11 +6,17 @@ export default () => (
   <StaticQuery
     query={graphql`
       query AudioFiles {
+        allFile(filter: { ext: { eq: ".mp3" } }, sort: { fields: name }) {
+          edges {
+            node {
+              publicURL
+            }
+          }
+        }
         site {
           id
           siteMetadata {
             audioFiles {
-              url
               title
             }
           }
@@ -21,13 +27,13 @@ export default () => (
       console.log(data)
       return (
         <div className="audio-player">
-          {data.site.siteMetadata.audioFiles.map(demo => {
+          {data.site.siteMetadata.audioFiles.map((demo, index) => {
             return (
               <Circle
                 key={demo.title}
                 id="one"
                 title={demo.title}
-                link={demo.url}
+                link={data.allFile.edges[index].node.publicURL}
               />
             )
           })}

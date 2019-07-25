@@ -23,7 +23,6 @@ function scrollAnchors(e, respond = null) {
 module.exports = {
   scrollTo: () => {
     const links = document.querySelectorAll(".nav__item")
-    console.log(links)
     links.forEach(each => (each.onclick = scrollAnchors))
   },
 }

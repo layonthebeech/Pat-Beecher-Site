@@ -29,6 +29,10 @@ export default () => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>Pat Beecher - Voice Actor - Chicago, IL</title>
+        <meta
+          name="Description"
+          content="Welcome to the website of professional Voice Actor and Debutante, Pat Beecher."
+        ></meta>
       </Helmet>
       <Nav sections={data.siteSections} />
       {data &&
@@ -55,11 +59,31 @@ export default () => {
                 </div>
               )}
               {index === 1 && (
+                <div className="who-i-am">
+                  <p>
+                    Hi, the name's Pat. It's a pleasure to make your
+                    acquaintance. Do you have a need? Do you know what that need
+                    is? Could that need be a voice? Not just any voice, the
+                    voice of a generation (ish). Well then you've found the
+                    right guy. But don't take my word for it, have a listen to
+                    the demos above and hear the rich dulcet tones that could
+                    soon be yours for a low cost of...well shoot me an email if
+                    you want to know that.
+                  </p>
+                  <br></br>
+                  <p>
+                    Anyways, I'm glad you're here, and if you like what you
+                    hear, reach out to me below! And if you're in the Chicago
+                    area, I'm always happy to get coffee!
+                  </p>
+                </div>
+              )}
+              {index === 2 && (
                 <div className="logos">
                   <Logo></Logo>
                 </div>
               )}
-              {index === 2 && (
+              {index === 3 && (
                 <div className="contact">
                   <form
                     id="fs-frm"
