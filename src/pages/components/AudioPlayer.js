@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { StaticQuery, graphql } from "gatsby"
-const Plyr = require("plyr")
+
 export default () => (
   <StaticQuery
     query={graphql`
@@ -25,8 +25,11 @@ export default () => (
     render={data => {
       const [id, setId] = useState(0)
       useEffect(() => {
-        const players = Array.from(document.querySelectorAll(".js-player")).map(
-          p =>
+        const Plyr = require("plyr")
+        if (typeof window !== "undefined") {
+          const players = Array.from(
+            document.querySelectorAll(".js-player")
+          ).map(p =>
             new Plyr(p, { autoPause: true }).on("play", e => {
               Array.from(document.querySelectorAll(".js-player")).map(p => {
                 if (p.plyr.id !== e.detail.plyr.id) {
@@ -35,8 +38,8 @@ export default () => (
               })
               setId(e.detail.plyr.id)
             })
-        )
-        console.log(players)
+          )
+        }
       }, [])
       return (
         <div className="audio-player">
