@@ -19,13 +19,16 @@ body {
 }
 p {
   color: $greener;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   letter-spacing: 2px;
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
+  line-height: 1.4;
 }
 .container {
   position: relative;
-  padding: 2rem;
-  padding-top: 3rem;
+  padding: 3rem;
+  // padding-top: 3rem;
   background: white;
 
   &--alt {
@@ -37,9 +40,13 @@ p {
   }
 }
 
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 #profile {
   background: url("../pages/components/bg-green.png");
-  min-height: 100vh;
   .title {
     margin-bottom: 0.5rem;
   }
@@ -109,7 +116,7 @@ p {
 .title {
   font-family: $dosis;
   color: $green;
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
   letter-spacing: 0.25rem;
@@ -119,8 +126,8 @@ p {
 .subtitle {
   text-align: center;
   margin-bottom: 4rem;
-  font-size: 2rem;
-  font-family: "Dosis", sans-serif;
+  font-size: 1.5rem;
+  font-family: "Lato", sans-serif;
 }
 
 .audio-player {

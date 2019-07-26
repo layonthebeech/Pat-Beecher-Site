@@ -10,7 +10,7 @@ class Nav extends React.Component {
           this.props.sections.map(section => {
             return (
               <NavItem
-                key={section.key}
+                key={section.title}
                 id={section.id}
                 title={section.title}
               />

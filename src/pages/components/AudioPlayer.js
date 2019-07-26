@@ -1,7 +1,6 @@
-import React from "react"
-import Circle from "./Circle"
+import React, { useState, useEffect } from "react"
 import { StaticQuery, graphql } from "gatsby"
-
+const Plyr = require("plyr")
 export default () => (
   <StaticQuery
     query={graphql`
@@ -24,17 +23,34 @@ export default () => (
       }
     `}
     render={data => {
-      console.log(data)
+      const [id, setId] = useState(0)
+      useEffect(() => {
+        const players = Array.from(document.querySelectorAll(".js-player")).map(
+          p =>
+            new Plyr(p, { autoPause: true }).on("play", e => {
+              Array.from(document.querySelectorAll(".js-player")).map(p => {
+                if (p.plyr.id !== e.detail.plyr.id) {
+                  p.pause()
+                }
+              })
+              setId(e.detail.plyr.id)
+            })
+        )
+        console.log(players)
+      }, [])
       return (
         <div className="audio-player">
           {data.site.siteMetadata.audioFiles.map((demo, index) => {
             return (
-              <Circle
-                key={demo.title}
-                id="one"
-                title={demo.title}
-                link={data.allFile.edges[index].node.publicURL}
-              />
+              <div key={demo.title} className="audio">
+                <h2>{demo.title}</h2>
+                <audio className="js-player">
+                  <source
+                    src={data.allFile.edges[index].node.publicURL}
+                    type="audio/mp3"
+                  />
+                </audio>
+              </div>
             )
           })}
         </div>
